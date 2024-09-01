@@ -1,5 +1,6 @@
 from textnode import TextNode
-from htmlnode import HTMLnode
+from htmlnode import HTMLNode
+from leafnode import LeafNode
 
 
 def main():
@@ -8,9 +9,9 @@ def main():
         "href": "https://www.google.com",
         "target": "_blank",
     }
-    node = HTMLnode("h1", "test", [], attrbts)
-    print(node.__repr__())
-    print(node.props_to_html())
+    node = HTMLNode("h1", "test", [], attrbts)
+    leafnode = LeafNode("Mirko attributes ?????", "a", attrbts)
+    print(leafnode.to_html())
 
 
 main()
