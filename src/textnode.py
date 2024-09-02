@@ -24,6 +24,7 @@ class TextNode:
         return f"TextNode({self.text}, {self.text_type}, {self.url})"
 
     def text_node___it_has_to_be_standalone_function____not_method(self):
+        # why this dummy?
         if self.text_type not in [text_type_text, text_type_bold, text_type_italic, text_type_code, text_type_link, text_type_image]:
             raise ValueError(f"Invalid text type: {self.text_type}")
         elif self.text_type is text_type_text:

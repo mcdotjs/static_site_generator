@@ -5,8 +5,7 @@ from htmlnode import ParentNode
 
 
 def main():
-    a = TextNode("This is a text node", "image", "https://www.google.com")
-    print(a.text_node_to_html_node().__repr__())
+    a = TextNode("AAAAAAAAAAAAAAAA `text` BBBBBBBBBBBB", "text")
     # attrbts = {
     #     "href": "https://www.google.com",
     #     "target": "_blank",
@@ -24,6 +23,25 @@ def main():
     #     ],
     # )
     # print(P.to_html())
+    node = TextNode("This is text with a `code block` word", "text")
+    new_nodes = split_nodes_delimiter([node, a], "`", "code")
+    print(new_nodes)
+
+
+def split_nodes_delimiter(old_nodes, delimiter, text_type):
+    newNodes = []
+    for node in old_nodes:
+        segments = node.text.split(delimiter)
+        newNode = []
+        for segment in range(len(segments)):
+            if segment == 1:
+                middle = TextNode(segments[segment], text_type, None)
+                newNode.append(middle)
+            else:
+                other = TextNode(segments[segment], "text", None)
+                newNode.append(other)
+        newNodes.append(newNode)
+    return newNodes
 
 
 main()
