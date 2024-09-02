@@ -1,6 +1,7 @@
 from textnode import TextNode
 from htmlnode import HTMLNode
 from htmlnode import LeafNode
+from htmlnode import ParentNode
 
 
 def main():
@@ -11,7 +12,16 @@ def main():
     }
     node = HTMLNode("h1", "test", [], attrbts)
     leafnode = LeafNode("a", "Mirko attributes ?????", attrbts)
-    print(leafnode.to_html())
 
+    P = ParentNode(
+        "p",
+        [
+            LeafNode("b", "Bold text"),
+            LeafNode(None, "Normal text"),
+            LeafNode("i", "italic text"),
+            LeafNode(None, "Normal text"),
+        ],
+    )
+    print(P.to_html())
 
 main()
