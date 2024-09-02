@@ -1,6 +1,6 @@
 from textnode import TextNode
 from htmlnode import HTMLNode
-from leafnode import LeafNode
+from htmlnode import LeafNode
 
 
 def main():
@@ -10,7 +10,7 @@ def main():
         "target": "_blank",
     }
     node = HTMLNode("h1", "test", [], attrbts)
-    leafnode = LeafNode("Mirko attributes ?????", "a", attrbts)
+    leafnode = LeafNode("a", "Mirko attributes ?????", attrbts)
     print(leafnode.to_html())
 
 

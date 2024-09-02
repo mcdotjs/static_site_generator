@@ -1,5 +1,5 @@
 from htmlnode import HTMLNode
-from leafnode import LeafNode
+from html import LeafNode
 import unittest
 
 
