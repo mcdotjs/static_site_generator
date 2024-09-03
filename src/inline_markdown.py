@@ -28,20 +28,20 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
     return new_nodes
 
 
-def split_nodes_delimiter__________(old_nodes, delimiter, text_type):
-    newNodes = []
-    for node in old_nodes:
-        if node.text_type != text_type_text:
-            newNodes.append(node)
-            continue
-        segments = node.text.split(delimiter)
-        newNode = []
-        for segment in range(len(segments)):
-            if segment == 1:
-                middle = TextNode(segments[segment], text_type, None)
-                newNode.append(middle)
-            else:
-                other = TextNode(segments[segment], text_type_text, None)
-                newNode.append(other)
-        newNodes.append(newNode)
-    return newNodes
+# def split_nodes_delimiter__________(old_nodes, delimiter, text_type):
+#     newNodes = []
+#     for node in old_nodes:
+#         if node.text_type != text_type_text:
+#             newNodes.append(node)
+#             continue
+#         segments = node.text.split(delimiter)
+#         newNode = []
+#         for segment in range(len(segments)):
+#             if segment == 1:
+#                 middle = TextNode(segments[segment], text_type, None)
+#                 newNode.append(middle)
+#             else:
+#                 other = TextNode(segments[segment], text_type_text, None)
+#                 newNode.append(other)
+#         newNodes.append(newNode)
+#     return newNodes
