@@ -7,7 +7,8 @@ from inline_markdown import (
     text_to_textnodes,
 )
 from markdown_blocks import (
-    markdown_to_blocks
+    markdown_to_blocks,
+    block_to_block_type
 )
 from textnode import (
     TextNode,
@@ -64,9 +65,8 @@ def main():
         "![image](https://www.example.com/image.png)",
         text_type_text,
     )
-    t = "This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
-    m = """
-This is **bolded** paragraph
+    t = "##This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
+    m = """. This is **bolded** paragraph```
 
 
 
@@ -77,7 +77,8 @@ This is the same paragraph on a new line
 * This is a list
 * with items"""
     new_nodes = markdown_to_blocks(m)
-    print(new_nodes)
+    i = block_to_block_type(new_nodes[0])
+    print(i)
 
 
 main()
