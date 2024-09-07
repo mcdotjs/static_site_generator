@@ -4,9 +4,11 @@ from htmlnode import ParentNode
 from inline_markdown import (
     split_nodes_link,
     split_nodes_image,
-    text_to_textnodes
+    text_to_textnodes,
 )
-
+from markdown_blocks import (
+    markdown_to_blocks
+)
 from textnode import (
     TextNode,
     text_type_text,
@@ -63,7 +65,18 @@ def main():
         text_type_text,
     )
     t = "This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
-    new_nodes = text_to_textnodes(t)
+    m = """
+This is **bolded** paragraph
+
+
+
+
+This is another paragraph with *italic* text and `code` here
+This is the same paragraph on a new line
+
+* This is a list
+* with items"""
+    new_nodes = markdown_to_blocks(m)
     print(new_nodes)
 
 
