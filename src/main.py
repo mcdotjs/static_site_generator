@@ -23,11 +23,11 @@ from textnode import (
     text_node_to_html_node,
 )
 
+from copystatic import (copy_dirs)
+
 
 def main():
-    mark = "## This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
-    first = markdown_to_html_node(mark)
-    print(first)
+    copy_dirs("./static", "./public")
 
 
 main()
