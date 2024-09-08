@@ -22,6 +22,16 @@ tags = {
 }
 
 
+def extact_title(markdown):
+    lines = markdown.split("\n")
+    stars = lines[0].split()
+    t = " ".join(stars[1:len(stars)])
+    if markdown.startswith("#") is False:
+        raise ValueError("no header!!!")
+    else:
+        return t
+
+
 def markdown_to_html_node_Mirko_nestaci__(markdown):
     markdown_in_blocks = markdown_to_blocks(markdown)
     parent = HTMLNode("div", None)

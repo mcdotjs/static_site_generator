@@ -9,8 +9,8 @@ from inline_markdown import (
 from markdown_blocks import (
     markdown_to_blocks,
     block_to_block_type,
-    markdown_to_html_node
-
+    markdown_to_html_node,
+    extact_title
 )
 from textnode import (
     TextNode,
@@ -24,10 +24,12 @@ from textnode import (
 )
 
 from copystatic import (copy_dirs)
+from generate_site import (generate_page)
 
 
 def main():
     copy_dirs("./static", "./public")
+    generate_page("./content/index.md", "./template.html", "./public/index.html")
 
 
 main()
