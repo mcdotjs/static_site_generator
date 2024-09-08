@@ -7,6 +7,18 @@ from markdown_blocks import (
 )
 
 
+def generate_pages_recursively(dir_path_content, template_path, dest_dir_path):
+    print_info(dir_path_content, template_path, dest_dir_path)
+    source_dirs = os.listdir(dir_path_content)
+    for item in source_dirs:
+        if os.path.isdir(os.path.join(dir_path_content, item)):
+            generate_pages_recursively(os.path.join(
+                dir_path_content, item), template_path, os.path.join(dest_dir_path, item))
+        else:
+            generate_page(os.path.join(
+                dir_path_content, item), template_path, os.path.join(dest_dir_path, "index.html"))
+
+
 def generate_page(from_path, template_path, dest_path):
     print_info(from_path, dest_path, template_path)
     file = open(from_path).read()
@@ -15,7 +27,12 @@ def generate_page(from_path, template_path, dest_path):
     title = extact_title(file)
     replaced = template_leaded.replace(
         "{{ Content }}", content).replace("{{ Title }}", title)
-    open(dest_path, "w").write(replaced)
+
+    dest_dir_path = os.path.dirname(dest_path)
+    if dest_dir_path != "":
+        os.makedirs(dest_dir_path, exist_ok=True)
+    to_file = open(dest_path, "w")
+    to_file.write(replaced)
 
 
 def print_info(f, t, d):

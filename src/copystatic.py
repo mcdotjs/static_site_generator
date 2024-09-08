@@ -19,7 +19,6 @@ def copy_dirs(source, destination):
     if len(source_dirs) > 0:
         for item in source_dirs:
             if os.path.isdir(os.path.join(source, item)):
-                print(source_dirs)
                 copy_dirs(os.path.join(source, item),
                           os.path.join(destination, item))
             else:

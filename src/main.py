@@ -24,12 +24,14 @@ from textnode import (
 )
 
 from copystatic import (copy_dirs)
-from generate_site import (generate_page)
+from generate_site import (generate_page, generate_pages_recursively)
 
 
 def main():
     copy_dirs("./static", "./public")
-    generate_page("./content/index.md", "./template.html", "./public/index.html")
+    # generate_page("./content/index.md", "./template.html", "./public/index.html")
+    generate_pages_recursively("./content", "./template.html",
+                               "./public")
 
 
 main()

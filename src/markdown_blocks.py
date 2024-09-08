@@ -143,7 +143,6 @@ def markdown_to_blocks(markdown):
     blocks = markdown.split("\n\n")
     filtered_blocks = []
     for block in blocks:
-        print("oOOOOO", block)
         if block == "":
             continue
         block = block.strip()
